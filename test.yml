@@ -8,6 +8,7 @@ key:
   key3: 
     key1: value
     key2: value
+    key3: anotherValue
 array:
   - item1
   - item2
