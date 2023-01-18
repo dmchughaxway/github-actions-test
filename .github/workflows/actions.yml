@@ -7,7 +7,17 @@ on:
   # schedule:
   #   - cron: "0/5 * * * *"
   #   - cron: "0/6 * * * *"
-  # push:
+  push:
+    branches: 
+      - master
+      - "feature/*" # Will match on feature/featA, feature/feaB but NOT feature/feat/C
+      - "feature/**" # Will match on feature/featA, feature/feaB, feature/feat/C
+      - "!feature/featC" # Will NOT match on feature/feat/C
+    tags:
+     - v1.*
+    paths:
+      - "**.js" # Will match on any javascript file
+      - "!filename.js" # Will NOT match on filename.js
   pull_request:
     types: 
       - closed
