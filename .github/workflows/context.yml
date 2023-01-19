@@ -23,8 +23,8 @@ jobs:
     steps:
       - name: dump
         run: | 
-          echo ${{ contains( 'hello', 'll' ) }}
-          echo ${{ startswith( 'hello', 'he' ) }}
-          echo ${{ endswith( 'hello', 'lo' ) }}
-          echo ${{ format( 'hello {0}{1}{2}', 'World', '!', '!' ) }}
+          echo ${{ contains( 'Hello', 'll' ) }}
+          echo ${{ startswith( 'Hello', 'he' ) }}
+          echo ${{ endswith( 'Hello', 'lo' ) }}
+          echo ${{ format( 'Hello {0}{1}{2}', 'World', '!', '!' ) }}
           
