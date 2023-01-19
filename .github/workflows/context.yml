@@ -1,18 +1,23 @@
 name: Context Dump
 
-on: push
+on: 
+  - push
+  - pull_request
 
 jobs:
   context-dump:
     runs-on: ubuntu-latest
+    if: github.event_name = 'push'
     steps:
       - name: Dump GitHub context
-        run: echo '${{ toJSON(github) }}'
+        run: eccho '${{ toJSON(github) }}'
       - name: Dump job context
+        if: failure()
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context
+        if: always()
         run: echo '${{ toJSON(runner) }}'
       - name: Dump strategy context
         run: echo '${{ toJSON(strategy) }}'
