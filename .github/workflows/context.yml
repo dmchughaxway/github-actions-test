@@ -18,3 +18,13 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dump
+        run: | 
+          echo ${{ contains( 'hello', 'll' ) }}
+          echo ${{ startswith( 'hello', 'he' ) }}
+          echo ${{ endswith( 'hello', 'lo' ) }}
+          echo ${{ format( 'hello {0}{1}{2}', 'World', '!', '!' ) }}
+          
